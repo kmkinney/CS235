@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -f TODO.exe
+g++ -o TODO *.cpp
