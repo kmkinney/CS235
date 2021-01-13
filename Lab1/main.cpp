@@ -4,10 +4,14 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+    TodoList myList;
     if(argc > 1) //command line arguments found
     {
         cout << "command line arguments" << endl;
+    }else
+    {
+        cout << "No commands found" << endl;
     }
-    cout << "running" << endl;
+    
     return 0;
 }
