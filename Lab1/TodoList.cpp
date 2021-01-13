@@ -27,17 +27,28 @@ TodoList::~TodoList()
         }
     }
     outFile.close();
-    delete &tasks;
 }
-void TodoList::add(string _duedate, string _task){
-
+void TodoList::add(string _duedate, string _task)
+{
+    this->tasks.push_back(_duedate + " " + _task);
 }
-int TodoList::remove(string _task){
+int TodoList::remove(string _task)
+{
     return 0;
 }
-void TodoList::printTodoList(){
-
+void TodoList::printTodoList()
+{
+    for(int i = 0;i < this->tasks.size();i++)
+    {
+        cout << this->tasks.at(i);
+    }
 }
-void TodoList::printDaysTasks(string _date){
-
+void TodoList::printDaysTasks(string _date)
+{
+    for(int i = 0;i < this->tasks.size();i++)
+    {
+        string t = this->tasks.at(i);
+        string d = t.substr(0, t.find(" "));
+        cout << d << endl;
+    }
 }
