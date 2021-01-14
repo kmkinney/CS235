@@ -7,7 +7,6 @@ using namespace std;
 TodoList::TodoList()
 {
     //read in from file
-    cout << "in constructor" << endl;
     ifstream inFile(FILE_NAME);
     string line;
     if(inFile.is_open())
@@ -23,7 +22,6 @@ TodoList::TodoList()
 //destructor. Writes contents to file.
 TodoList::~TodoList()
 {
-    cout << "in destructor" << endl;
     ofstream outFile(FILE_NAME, ofstream::out | ofstream::trunc);
     if(outFile.is_open())
     {
@@ -38,14 +36,12 @@ TodoList::~TodoList()
 //adds task to task list
 void TodoList::add(string _duedate, string _task)
 {
-    cout << "in add" << endl;
     tasks.push_back(_duedate + " " + _task);
 }
 
 //return 1 if successful, 0 if failed
 int TodoList::remove(string _task)
 {
-    cout << "in remove" << endl;
     string tempTask;
     for(int i = 0;i < tasks.size();i++)
     {
@@ -62,7 +58,6 @@ int TodoList::remove(string _task)
 //prints all tasks in TODO list
 void TodoList::printTodoList()
 {
-    cout << "in print" << endl;
     for(int i = 0;i < tasks.size();i++)
     {
         cout << tasks[i] << endl;
@@ -72,7 +67,6 @@ void TodoList::printTodoList()
 //prints all tasks due on given date
 void TodoList::printDaysTasks(string _date)
 {
-    cout << "in print day" << endl;
     string temp;
     string day;
     bool hasTasks = false;
@@ -91,6 +85,6 @@ void TodoList::printDaysTasks(string _date)
     }
     if(!hasTasks)
     {
-        cout << "No tasks found due " << _date << endl;
+        cout << "No tasks were found due on " << _date << endl;
     }
 }
