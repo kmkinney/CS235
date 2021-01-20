@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    TodoList myList;
+    TodoList myList; //crete a todo list object
     if(argc > 1) //command line arguments found
     {
         string command = argv[1];

@@ -9,6 +9,7 @@ using namespace std;
 
 const string FILE_NAME = "TODOList.txt";
 
+//TodoList class implements a todo list to be used by main.cpp
 class TodoList: public TodoListInterface{
     private:
         vector<string> tasks;
