@@ -1,4 +1,0 @@
-#!/bin/bash
-rm -f TODO.exe
-g++ -o TODO *.cpp
-echo "g++ -o TODO *.cpp"
