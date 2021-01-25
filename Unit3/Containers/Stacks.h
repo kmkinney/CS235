@@ -5,6 +5,14 @@ using namespace std;
 
 void StackTest()
 {
+	/*
+		Stack Methods
+		void push(<type> item);
+		void pop(); !!-----DOESN'T RETUR VALUE-------!!
+		<type> top();
+		bool empty();
+		int size();
+	*/
 	cout << "Stack test" << endl;
 	stack<int> my_stack;
 	my_stack.push(1);

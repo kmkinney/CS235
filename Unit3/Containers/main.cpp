@@ -6,6 +6,8 @@
 #include "Queues.h"
 #include "Deques.h"
 #include "PriorityQueues.h"
+#include "Lists.h"
+#include "Vectors.h"
 using namespace std;
 
 int main()
@@ -15,6 +17,8 @@ int main()
     //StackTest();
     //QueueTest();
     //DequeTest();
-    PriorityQueueTest();
+    //PriorityQueueTest();
+    //ListTest();
+    VectorTest();
     return 0;
 }
