@@ -75,6 +75,9 @@ void SetTest()
 
 
     //Other types of sets
+    //Unordered, similar to HashSet<> in Java
+    //Uses a hash table
+    //Faster at determining whether an object is in the set
     unordered_set<string> words_unordered;
 }
 
