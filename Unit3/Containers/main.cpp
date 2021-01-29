@@ -22,6 +22,7 @@ int main()
     //PriorityQueueTest();
     //ListTest();
     //VectorTest();
-    SetTest();
+    //SetTest();
+    MapTest();
     return 0;
 }
