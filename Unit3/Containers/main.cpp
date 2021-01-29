@@ -8,6 +8,8 @@
 #include "PriorityQueues.h"
 #include "Lists.h"
 #include "Vectors.h"
+#include "Sets.h"
+#include "Maps.h"
 using namespace std;
 
 int main()
@@ -19,6 +21,7 @@ int main()
     //DequeTest();
     //PriorityQueueTest();
     //ListTest();
-    VectorTest();
+    //VectorTest();
+    SetTest();
     return 0;
 }
