@@ -66,7 +66,32 @@ bool Pathfinder::importMaze(string file_name){
     return true;
 }
 
+bool Pathfinder::searchMazePaths(int r, int c, vector<string> &path){
+    if(r < 0 || r >= ROW_SIZE)
+        return false;
+    if(c < 0 || c >= COL_SIZE)
+        return false;
+    if(maze[r][c] == 0 || maze[r][c] == 2)
+        return false;
+
+    stringstream ss;
+    ss << "(" << r << ", " << c << ")";
+    path.push_back(ss.str());
+    maze[r][c] = 2;
+
+    if(r == (ROW_SIZE - 1) && c == (COL_SIZE - 1))
+        return true;
+    
+    return searchMazePaths(r+1, c, path) ||
+           searchMazePaths(r-1, c, path) ||
+           searchMazePaths(r, c+1, path) ||
+           searchMazePaths(r, c-1, path);
+}
+
 vector<string> Pathfinder::solveMaze(){
+    if(searchMazePaths(0, 0, solution))
+        return solution;
+    solution.clear();
     return solution;
 }
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_set>
 #include "PathfinderInterface.h"
 using namespace std;
 
@@ -16,6 +17,7 @@ class Pathfinder: public PathfinderInterface
         const static int PATH       = 3;
         int maze[ROW_SIZE][COL_SIZE];
         vector<string> solution;
+        bool searchMazePaths(int r, int c, vector<string> &path);
 
 
     public:
