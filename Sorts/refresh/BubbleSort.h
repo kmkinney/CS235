@@ -14,7 +14,6 @@ void BubbleSort(vector<int> &list)
                 int temp = list[j];
                 list[j] = list[j+1];
                 list[j+1] = temp;
-
             }
         }
     }
