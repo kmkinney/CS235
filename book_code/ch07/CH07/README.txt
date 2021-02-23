@@ -1,0 +1,23 @@
+This directory contains the following files:
+
+binary_search.h		The binary search function
+
+Blob.cpp		The Blob program
+
+linear_search.h		The linear search function
+
+Makefile		Makefile for g++
+
+makefile.mak		Makefile for Visual Studio .NET
+
+Maze.cpp		The Maze program
+
+README.txt		This file
+
+Recursive_Functions.cpp	Source file for several recursive functions
+
+TestBinarySearch.cpp	Test of binary search and linear search
+
+Towers_Of_Hanoi.cpp	The towers of hanoi program
+
+TwoDArray.h		The TwoDArray class

@@ -1,0 +1,88 @@
+#ifndef ARRAY_QUEUE_TC_
+#define ARRAY_QUEUE_TC_
+
+/** Constructs an empty queue. */
+template<typename Item_Type>
+queue<Item_Type>::queue() : capacity(DEFAULT_CAPACITY), num_items(0),
+			    front_index(0), rear_index(DEFAULT_CAPACITY - 1), 
+			    the_data(new Item_Type[DEFAULT_CAPACITY]) {}
+
+/** Pushes an item onto the rear of the queue.
+    @param item The item to be inserted
+*/
+template<typename Item_Type>
+void queue<Item_Type>::push(const Item_Type& item) {
+  if (num_items == capacity) {
+    reallocate();
+  }
+  num_items++;
+  /*<snippet id="1" omit="false">*/
+  rear_index = (rear_index + 1) % capacity;
+  /*</snippet>*/
+  the_data[rear_index] = item;
+}
+
+/** Returns a reference to the object at the front of the queue 
+    without removing it.
+    @return A reference to the object at the front of the queue
+*/
+template<typename Item_Type>
+Item_Type& queue<Item_Type>::front() {
+  return the_data[front_index];
+}
+
+/** Returns a const reference to the object at the
+    front of the queue without removing it.
+    @return A const reference to the object at the front of the queue
+*/
+template <typename Item_Type>
+const Item_Type& queue<Item_Type>::front() const {
+  return the_data[front_index];
+}
+
+/** Removes the front item from the queue. */
+template<typename Item_Type>
+void queue<Item_Type>::pop() {
+  front_index = (front_index + 1) % capacity;
+  num_items--;
+}
+
+/** Determines whether the queue is empty */
+template<typename Item_Type>
+bool queue<Item_Type>::empty() const {
+  return num_items == 0;
+}
+
+/** Determines the size of the queue. */
+template<typename Item_Type>
+size_t queue<Item_Type>::size() const {
+}
+
+/** Doubles the capacity and reallocates the data.
+    pre:  The array is filled to capacity.
+    post: The capacity is doubled and the first half
+    of the expanded array is filled with data.
+*/
+template<typename Item_Type>
+void queue<Item_Type>::reallocate() {
+  size_t new_capacity = 2 * capacity;
+  Item_Type* new_data = new Item_Type[new_capacity];
+  /*<snippet id="4" omit="false">*/
+  size_t j = front_index;
+  for (size_t i = 0; i < num_items; i++) {
+    new_data[i] = the_data[j];
+    j = (j + 1) % capacity;
+  }
+  /*</snippet>*/
+  front_index = 0;
+  rear_index = num_items - 1;
+  capacity = new_capacity;
+  std::swap(the_data, new_data);
+  delete[] new_data;
+}
+
+
+
+
+
+#endif

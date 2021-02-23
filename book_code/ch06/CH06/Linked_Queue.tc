@@ -1,0 +1,82 @@
+#ifndef LINKED_QUEUE_TC_
+#define LINKED_QUEUE_TC_
+
+/** Constructs an empty queue. */
+template<typename Item_Type>
+queue<Item_Type>::queue() : front_of_queue(NULL), back_of_queue(NULL), 
+			    num_items(0) {}
+
+/** Pushes an item onto the back of the queue.
+    @param item The item to be inserted
+*/
+template<typename Item_Type>
+void queue<Item_Type>::push(const Item_Type& item) {
+  if (front_of_queue == NULL) {
+    /*<snippet id="1" omit="false">*/
+    back_of_queue = new Node(item, NULL);
+    front_of_queue = back_of_queue;
+    /*</snippet>*/
+    back_of_queue = new Node(item, NULL);
+    front_of_queue = back_of_queue;
+    /*</snippet>*/
+  } else {
+    /*<snippet id="2" omit="false">*/
+    back_of_queue->next = new Node(item, NULL);
+    back_of_queue = back_of_queue->next;
+    /*</snippet>*/
+  }
+  num_items++;
+}
+
+/** Returns a reference to the object at the front of the queue 
+    without removing it.
+    @return A reference to the object at the front of the queue
+*/
+template<typename Item_Type>
+Item_Type& queue<Item_Type>::front() {
+  /*<snippet id="3" omit="false">*/
+  /*</snippet>*/
+  return front_of_queue->data;
+  /*</snippet>*/
+}
+
+/** Returns a const reference to the object at the 
+    front of the queue without removing it.
+    @return A const reference to the object at the front of the queue
+*/
+template<typename Item_Type>
+const Item_Type& queue<Item_Type>::front() const {
+  return queue<Item_Type>::front_of_queue->data;
+}
+
+/** Removes the front item from the queue. */
+template<typename Item_Type>
+void queue<Item_Type>::pop() {
+  /*<snippet id="4" omit="false">*/
+  Node* old_front = front_of_queue;
+  front_of_queue = front_of_queue->next;
+  if (front_of_queue == NULL) {
+    back_of_queue = NULL;
+  }
+  delete old_front;
+  num_items--;
+  /*</snippet>*/
+}
+
+/** Determines whether the queue is empty. */
+template<typename Item_Type>
+bool queue<Item_Type>::empty() const {
+  return front_of_queue == NULL;
+}
+
+/** Determines the size of the queue. */
+template<typename Item_Type>
+size_t queue<Item_Type>::size() const {
+  return num_items;
+}
+
+
+
+
+
+#endif

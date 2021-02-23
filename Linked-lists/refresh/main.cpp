@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "LinkedList.h"
+#include "Stack.h"
 using namespace std;
 
 int main()
@@ -12,5 +13,10 @@ int main()
     list.add(4);
     list.remove(1);
     list.printList();
+
+    Stack<string> stack;
+    stack.push("hi");
+    stack.push("hello");
+    cout << stack.pop() << endl;
     return 0;
 }

@@ -1,0 +1,98 @@
+import java.util.*;
+
+/** Interface to represent a graph. A graph consists of a set of 
+ *  verticies and a set of edges. The verticies may be any set
+ *  of objects. A vertix may not be null. Edges relate verticies
+ *  and may have a value associated with them.
+ */
+interface Graph {
+    
+    // Nested Interface
+    /** An Edge represents a relationship between two verticies.
+     */
+    static interface Edge {
+	// Methods
+	/** Get the source vertix of this edge
+	 *  @return the source vertix of this edge
+	 Object getSource();
+
+	 /** Get the destination vertix of this
+	 *  edge.
+	 *  @return the destination vertix of this edge
+	 */
+	Object getDestination();
+
+	/** Set a property for this edge 
+	 *  @param property - The property
+	 *  @param value - The value of the property
+	 */
+	void setProperty(Object property, Object value);
+
+	/** Get the value of a property for this edge
+	 *  If the edge does not have the property or
+	 *  a property value is not defined, null is returned.
+	 *  @param property - The property
+	 *  @return The property value.
+	 */
+	Object getPropertyValue(Object property);
+
+	/** Return true if the edge has this property
+    }
+
+    /** Returns a set view of the verticies contained in this graph.
+     *  The set is backed by the graph and is not modifable. 
+     *  The verticies will be returned in a fixed but arbitrary
+     *  order.
+     *  @returns a set view of the verticies.
+     */
+    Set getVerticies();
+
+    /** Returns the index associated with this vertix.  When the
+     *  graph is created the verticies are assigned an arbitrary
+     *  but fixed index.  Client programs may obtain more efficient
+     *  implementation of algorithms by using the index.
+     *  @returns the index of a given vertix
+     */
+    int getIndex(Object vertix);
+
+    /** Returns a set view of all of the edges contained in this graph.
+     *  The set is backed by the graph and is not modifiable.
+     *  @return a set view of the edges
+     */
+    Set getEdges();
+
+    /** Returns a set view of the out going edges from a given vertix.
+     *  The set is backed by the graph and is not modifiable.
+     *  @param vertix The vertix for which the edges are desired
+     *  @return a set view of the out going edges of a vertix
+     */
+    Set getEdges(Object vertix);
+
+    /** Returns a set view of the out going edges from a given vertix.
+     *  The set is backed by the graph and is not modifiable.
+     *  @param i The index of the vertix
+     *  @return a set view of the out going edges of a vertix
+     */
+    Set getEdges(int i);
+
+    /** Returns true if this is a directed graph
+     *  @return true if this is a directed graph
+     */
+    boolean isDirected(); 
+    
+    /** Returns true if an edge exists between two verticies.
+     *  @return true if there is an edge between two verticies
+     */
+    boolean isEdge(Object source, Object destination);
+
+    /** Returns true if an edge exists between two verticies
+     *  where the verticies are specified by their index number
+     */
+    boolean isEdge(int i, int j);
+
+    /** Insert an edge into the graph */
+    void insertEdge(Object source, Object destination);
+
+    /** Insert an edge into the graph, specifying the edges via
+     *  their index */
+    void insertEdge(int u, int v);
